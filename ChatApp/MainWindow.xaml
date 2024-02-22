@@ -1,0 +1,62 @@
+﻿<Window x:Class="ChatApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChatApp" xmlns:viewmodel="clr-namespace:ChatApp.ViewModel" 
+        mc:Ignorable="d"
+        Title="A-Hee-Hee Main Window" Height="450" Width="800">
+
+
+
+    <Page Background="WhiteSmoke">
+        <Grid  Width="800" Height="450">
+            <!-- Column and Row Definitions -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.25*"/>
+                <ColumnDefinition Width="0.25*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.5*"/>
+            </Grid.RowDefinitions>
+            
+            <!-- Title -->
+            <TextBlock Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="36" FontStyle="Italic" FontWeight="DemiBold" Foreground="DarkOrchid" Margin="5">A Hee Hee!</TextBlock>
+            
+            <!-- Label prompt for entering username -->
+            <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" FontSize="12" FontStyle="Italic" FontWeight="DemiBold" Foreground="Salmon" Margin="5">Username</TextBlock>
+            
+            <!-- Box to enter username -->
+            <TextBox  Grid.Row="1" Grid.Column="2"   Margin="5"  Text="{Binding Username}"/>
+
+            <!-- Label prompt for entering IP address to use -->
+            <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" TextWrapping="Wrap" FontSize="12" FontStyle="Italic" FontWeight="DemiBold" Foreground="Salmon"  Margin="5">IP Address (default: 127.0.0.1)</TextBlock>
+
+            <!-- Box for entering IP address -->
+            <TextBox Grid.Row="2" Grid.Column="2" Margin="5" TextWrapping="Wrap" Text="{Binding IPAddress_}" />
+
+            <!-- Label prompt for entering port to listen on or join -->
+            <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" FontSize="12" FontStyle="Italic" FontWeight="DemiBold" Foreground="Salmon"  Margin="5">Port</TextBlock>
+            
+            <!-- Box for entering port number -->
+            <TextBox Grid.Row="3" Grid.Column="2" Margin="5" TextWrapping="Wrap" Text="{Binding Port}"/>
+
+            
+
+            <!-- Button for Staring a session -->
+            <Button Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left"  Margin="10" Content="Start Session" Command="{Binding Path=StartServer}" />
+            
+            <!-- Button for joining a session -->
+            <Button Grid.Row="4" Grid.Column="2" HorizontalAlignment="Right" Margin="10" Content="Join Session" Command="{Binding Path=StartClient}"/>
+        </Grid> 
+
+    </Page>
+</Window>
